@@ -1,0 +1,23 @@
+<title>Yönetici Girişi</title>
+
+<form class="login-form">
+    <div class="form-item">
+        <input type="email" placeholder=" " id="email" required [(ngModel)]="admin.email" name="email" #email="ngModel"
+            spellcheck="false" />
+        <label for="email">Email</label>
+    </div>
+
+    <div class="form-item">
+        <input type="password" placeholder=" " id="password" required [(ngModel)]="admin.password" name="password"
+            #password="ngModel" minlength="4" />
+        <label for="password">Şifre</label>
+    </div>
+
+    <div [hidden]="!submitted" style="margin-bottom:20px">{{ message }}</div>
+
+    <div>
+        <button (click)="checkAdmin()" class="gradient-button">
+            Giriş
+        </button>
+    </div>
+</form>
