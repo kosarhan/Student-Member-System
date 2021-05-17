@@ -1,0 +1,70 @@
+<title>Üniversiteler</title>
+
+<div>
+    <h5 class="uni-title">ÜNİVERSİTELER</h5>
+    <div class="uni-card">
+        <div>
+            <div [hidden]="submitted">
+                <form #addUniversityForm="ngForm">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="name" placeholder="Üniversite" required
+                            [(ngModel)]="university2.name" name="name" #name="ngModel">
+                        <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+                            Üniversite ismi gerekiyor
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+
+                        <input type="text" class="form-control" id="city" placeholder="Şehir" required
+                            [(ngModel)]="university2.city" name="city" #city="ngModel">
+                        <div [hidden]="city.valid || city.pristine" class="alert alert-danger">
+                            Şehir ismi gerekiyor
+                        </div>
+                    </div>
+
+                    <div class="form-group btn-group btn-group-sm">
+                        <button type="button" class="btn btn-dark" (click)="addUniversity()"
+                            [disabled]="!addUniversityForm.form.valid">Ekle</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div [hidden]="!submitted">
+            <p>Başarıyla eklendi! -> <span class="badge badge-light">{{university2.name}}</span></p>
+            <div class="btn-group btn-group-sm">
+                <button type="button" class="btn btn-dark"
+                    (click)="newUniversity(); submittedReset(); addUniversityForm.reset()">Onayla</button>
+            </div>
+        </div>
+        <br style="clear: both;" />
+    </div>
+    <div>
+        <div class="uni-table">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Üniversite Adı</th>
+                        <th>Şehir</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let uni of university">
+                        <td>{{ uni.id }}</td>
+                        <td>{{ uni.name }}</td>
+                        <td>{{ uni.city }}</td>
+                        <td style="border: none;">
+                            <a [routerLink]="['/universities', uni.id]">
+                                <img src="assets/register-icon.jpg" alt="edit-icon" width="18" height="18">
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+</div>

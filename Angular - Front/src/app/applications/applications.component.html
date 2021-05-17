@@ -1,0 +1,35 @@
+<title>Başvurular</title>
+
+<div>
+    <h5 class="uni-title">Başvurular</h5>
+    <div style="text-align: end;">Bekleyen Başvuru Sayısı: {{c}}</div>
+    <div>
+        <div class="uni-table">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Ad</th>
+                        <th>Soyad</th>
+                        <th>Başvuru Tarihi</th>
+                        <th>Başvuru Durumu</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let app of applications">
+                        <td>{{ app.id }}</td>
+                        <td>{{ app.student.first_name }}</td>
+                        <td>{{ app.student.last_name }}</td>
+                        <td>{{ app.createdAt }}</td>
+                        <td *ngIf="getStatus(app.student.verification_status) as status" >{{ status }}</td>
+                        <td style="border: none;">
+                            <!--<a [routerLink]="['/universities', uni.id]">
+                            </a>-->
+                            <img src="assets/register-icon.jpg" routerLink="/studentinfo/{{app.student.id}}" alt="edit-icon" width="18" height="18">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

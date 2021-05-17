@@ -1,0 +1,40 @@
+<title>Öğrenci Girişi</title>
+
+<div class="links-container">
+    <a href="https://twitter.com/TMMOB_BMO" class="link-button">
+        <img src="./assets/twitter.png" alt="twitter-logo" height="20px" width="20px">
+    </a>
+    <a href="https://www.facebook.com/bilgisayarmuhendisleriodasi" class="link-button">
+        <img src="./assets/facebook.png" alt="facebook-logo" height="20px" width="20px"></a>
+</div>
+
+
+<form class="login-form">
+    <div class="form-item">
+        <input type="email" placeholder=" " id="email" required [(ngModel)]="student.email" name="email" #email="ngModel" spellcheck="false" />
+        <label for="email">Email</label>
+    </div>
+
+    <div class="form-item">
+        <input type="password" placeholder=" " id="password" required [(ngModel)]="student.password" name="password" #password="ngModel" minlength="4" />
+        <label for="password">Şifre</label>
+    </div>
+
+    <div [hidden]="!submitted" style="margin-bottom:20px">{{ message }}</div>
+
+    <div>
+        <button (click)="verifyStudent()" class="gradient-button">
+            Giriş
+        </button>
+    </div>
+
+    <div class="form-item-register">
+        <span>
+            Bir hesabın yok mu?
+        </span>
+
+        <a routerLink="/register">
+            Kayıt Ol
+        </a>
+    </div>
+</form>

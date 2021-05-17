@@ -1,0 +1,83 @@
+<title>{{ university.name }}</title>
+<h4><span>{{university.id}}</span> -> {{university.name}}</h4>
+<div [hidden]="submitted">
+    <form #detailUniversityForm="ngForm">
+        <div class="form-group">
+            <label class="name" for="name">Ad</label>
+            <input type="text" class="form-control" id="name" required [(ngModel)]="university.name" name="name" #name="ngModel">
+            <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+                Üniversite ismi gerekli
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="city" for="city">Şehir</label>
+            <input type="text" class="form-control" id="city" required [(ngModel)]="university.city" name="city" #city="ngModel">
+            <div [hidden]="city.valid || city.pristine" class="alert alert-danger">
+                Şehir gerekli
+            </div>
+        </div>
+
+        <div class="btn-group btn-group-sm">
+            <!--button type="button" class="btn btn-dark" (click)="goBack()">Back</button-->
+            <button type="button" class="btn btn-dark" (click)="update()" [disabled]="!detailUniversityForm.form.valid">Güncelle</button>
+            <button type="button" class="btn btn-dark" (click)="delete()">Sil</button>
+        </div>
+    </form>
+</div>
+
+<div [hidden]="!submitted">
+    <p>{{message}}</p>
+    <div class="btn-group btn-group-sm">
+        <button type="button" class="btn btn-dark" (click)="goBack()">Back</button>
+    </div>
+</div>
+
+<br style="clear: both;">
+
+
+<div class="dep-form" [hidden]="departmentSubmitted">
+    <form #detailDepartmentForm="ngForm">
+        <div class="form-group">
+            <label class="name" for="name">Bölüm Adı</label>
+            <input type="text" class="form-control" id="dname" required [(ngModel)]="department.name" name="dname" #dname="ngModel">
+            <div [hidden]="dname.valid || dname.pristine" class="alert alert-danger">
+                Bölüm ismi gerekli
+            </div>
+        </div>
+
+        <div class="btn-group btn-group-sm">
+            <!--button type="button" class="btn btn-dark" (click)="goBack()">Back</button-->
+            <button type="button" class="btn btn-dark" (click)="addDepartment()" [disabled]="!detailDepartmentForm.form.valid" [hidden]="!departmentCreate">Ekle</button>
+            <button type="button" class="btn btn-dark" (click)="updateDepartment()" [hidden]="departmentCreate">Güncelle</button>
+            <button type="button" class="btn btn-dark" (click)="deleteDepartment()" [hidden]="departmentCreate">Sil</button>
+        </div>
+
+    </form>
+</div>
+<div [hidden]="!departmentSubmitted">
+    <p>{{message}}</p>
+    <button type="button" class="btn btn-dark" (click)="reload()">Yenile</button>
+</div>
+
+<div class="uni-table">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Bölüm Adı</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let dep of departments">
+                <td>{{ dep.id }}</td>
+                <td>{{ dep.name }}</td>
+                <td style="border: none;">
+                    <a (click)="getDepartment(dep.id)">
+                        <img src="assets/register-icon.jpg" alt="edit-icon" width="18" height="18">
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

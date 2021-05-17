@@ -1,0 +1,32 @@
+<title>Öğrenciler</title>
+
+<div>
+    <h5 class="uni-title">ÖĞRENCİLER</h5>
+    <div>
+        <div class="uni-table">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Adı</th>
+                        <th>Soyadı</th>
+                        <th>Üniversite Adı</th>
+                        <th>Bölüm Adı</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let student of students">
+                        <td>{{ student.id }}</td>
+                        <td>{{ student.first_name }}</td>
+                        <td>{{ student.last_name }}</td>
+                        <td>{{ student.university_name }}</td>
+                        <td>{{ student.department_name }}</td>
+                        <td style="border: none;">
+                            <button type="button" (click)="delete(student.id)" [hidden]="departmentCreate">Sil</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

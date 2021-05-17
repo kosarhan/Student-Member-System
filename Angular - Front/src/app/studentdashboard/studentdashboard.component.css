@@ -1,0 +1,65 @@
+.card-container {
+   position: absolute;
+
+   top: 44%;
+   /*üstten bırakılacak boşluk*/
+
+   width: 99%;
+   /*div bloğunun ekranı enine kaplamasını sağlıyor*/
+
+   text-align: center;
+   /*container içerisindeki itemleri ortalıyor*/
+}
+
+.card {
+    border-radius: 1024px;
+    /*card köşelerini yuvarlama*/
+
+    border: none;
+
+    background-color: #fafafa;
+    
+    height: 40px;
+    width: 200px;
+    /*card boyutları*/
+   
+    margin-top: 16px;
+    /*üstten pozisyon*/
+   
+    margin-left: 16px;
+    /*soldan pozisyon*/
+    
+    margin-right: 16px;
+    /*soldan pozisyon*/
+
+    padding: 16px;
+    /*boşluk kart içerisinde her taraftan boşluk yapıyor*/
+
+    display: inline-flex;
+    /*görüntüleme biçimi satır boyunca yerleştiriyor*/
+
+    flex-direction: row;
+    /*itemleri card içerisine nasıl yerleştirdiğimizi ayarlıyor row=satır halinde yerleştiriyor*/
+
+    justify-content: center;
+    /*card içersisine yazılan yazının yatay pozisyonunu ayarlıyor*/
+
+
+    align-items: center;
+    /*card içerisine yazılan yazının dikey pozisyonunu ayarlıyor*/
+
+    color: black;
+
+    text-decoration: none;
+    /*linklendikten sonra altına gelen çizgiyi kaldırmak için*/
+
+    transition: all 0.2s ease-in-out;
+    /*hoverın yavaşlaması için card üzerine geldiğimizde yukarı aşağı efektinin aniden olmamasını sağlıyor*/
+
+    line-height: 24px;/*yazdığımız bir yazının kaplıyacağı yükseklik !!!text boyutu değil!!! */
+}
+
+.card-container .card:not(.highlight-card):hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 17px rgba(black, 0.35);
+}

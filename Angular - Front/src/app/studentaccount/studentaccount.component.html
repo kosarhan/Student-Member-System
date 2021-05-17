@@ -1,0 +1,245 @@
+<title>Öğrenci Hesap Bilgileri</title>
+
+<form class="register-form" #addStudentForm="ngForm" method="POST" enctype="multipart/form-data">
+    <div id="alert" class="alert">
+        Başvurunuz admin tarafından onaylanmamış
+    </div>
+    <div class="header">
+        <span class="form-title">TMMOB BİLGİSAYAR MÜHENDİSLERİ ODASI</span>
+        <span class="form-name">Öğrenci Üye Formu</span>
+    </div>
+
+    <span class="table-title">Nüfus Bilgileri</span>
+
+    <div class="block">
+        <div style="float: left;">
+            <div class="row">
+                <div style="float: left; ">
+                    <div class="row-title"> TC Kimlik No.</div>
+                    <input type="text" id="ssn" required [(ngModel)]="student.ssn" name="ssn" #ssn="ngModel" spellcheck="false" pattern="[0-9]{11}" minlength="11" maxlength="11" onkeyup="this.value = this.value.replace(/[^0-9]/, '')" />
+                </div>
+                <div style="float: left; margin-left: 10px;">
+                    <div class="row-title"> Kan Grubu </div>
+                    <select class="blood" (change)="enableDisable()" name="blood_type" id="blood_type" [(ngModel)]="student.blood_type">
+                        <option value="AB Rh+">AB Rh+</option>
+                        <option value="AB Rh-">AB Rh-</option>
+                        <option value="A Rh+">A Rh+</option>
+                        <option value="A Rh-">A Rh-</option>
+                        <option value="B Rh+">B Rh+</option>
+                        <option value="B Rh-">B Rh-</option>
+                        <option value="0 Rh+">0 Rh+</option>
+                        <option value="0 Rh-">0 Rh-</option>
+                    </select>
+
+                </div>
+
+                <br style="clear: both;">
+            </div>
+            <div class="row">
+                <div style="float: left; ">
+                    <div class="row-title">Adı</div>
+                    <input type="text" id="first_name" required [(ngModel)]="account.first_name" name="first_name" #first_name="ngModel" spellcheck="false" pattern="[A-zığüşöçİĞÜŞÖÇ\s]{2,}" minlength="2" maxlength="62" onkeyup="this.value = this.value.replace(/[^A-zığüşöçİĞÜŞÖÇ\s]/, '')"
+                    />
+                </div>
+
+                <div style="float: left; margin-left: 10px;">
+                    <div class="row-title">Soyadı</div>
+                    <input type="text" id="last_name" required [(ngModel)]="account.last_name" name="last_name" #last_name="ngModel" spellcheck="false" pattern="[A-zığüşöçİĞÜŞÖÇ\s]{2,}" minlength="2" maxlength="62" onkeyup="this.value = this.value.replace(/[^A-zığüşöçİĞÜŞÖÇ\s]/, '')"
+                    />
+                </div>
+                <br style="clear: both;">
+            </div>
+
+            <div class="row">
+                <div style="float: left; ">
+                    <div class="row-title">Ana Adı</div>
+                    <input type="text" id="mother_name" required [(ngModel)]="student.mother_name" name="mother_name" #mother_name="ngModel" spellcheck="false" pattern="[A-zığüşöçİĞÜŞÖÇ\s]{2,}" minlength="2" maxlength="62" onkeyup="this.value = this.value.replace(/[^A-zığüşöçİĞÜŞÖÇ\s]/, '')"
+                    />
+                </div>
+                <div style="float: left; margin-left: 10px;">
+                    <div class="row-title">Baba Adı</div>
+                    <input type="text" id="father_name" required [(ngModel)]="student.father_name" name="father_name" #father_name="ngModel" spellcheck="false" pattern="[A-zığüşöçİĞÜŞÖÇ\s]{2,}" minlength="2" maxlength="62" onkeyup="this.value = this.value.replace(/[^A-zığüşöçİĞÜŞÖÇ\s]/, '')"
+                    />
+                </div>
+                <br style="clear: both;">
+            </div>
+
+            <div class="row">
+                <div style="float: left; ">
+                    <div class="row-title">Doğum Yeri</div>
+                    <input type="text" id="birth_place" required [(ngModel)]="student.birth_place" name="birth_place" #father_name="ngModel" spellcheck="false" pattern="[A-zığüşöçİĞÜŞÖÇ\s]{2,}" minlength="2" maxlength="30" onkeyup="this.value = this.value.replace(/[^A-zığüşöçİĞÜŞÖÇ\s]/, '')"
+                    />
+                </div>
+                <div style="float: left; margin-left: 10px;">
+                    <div class="row-title">Doğum Tarihi</div>
+                    <input class="date" type="date" id="birthdate" required [(ngModel)]="student.birthdate" name="birthdate" #birthdate="ngModel" spellcheck="false" />
+                </div>
+                <br style="clear: both;">
+            </div>
+        </div>
+
+        <div style="float: left; margin-left: 155px;">
+            <div> <img [src]="imgURL" *ngIf="imgURL" alt="vesikalık" width="130px" height="145px" style="margin-top: -10px; border-radius: 4px;  "></div>
+            <input #file type="file" accept='image/*' id="passport_photo" name="passport_photo" ng2FileSelect [uploader]="uploader" (change)="preview(file.files)" style="margin-top: 10px;  width: 87px; margin-left: 22px; border: none; background: whitesmoke; " accept="image/*">
+        </div>
+        <br style="clear: both;">
+    </div>
+
+    <div class="block">
+        <div class="row">
+            <div style="float: left; ">
+                <div class="row-title">İl</div>
+                <input type="text" id="city" required [(ngModel)]="student.city" name="city" #city="ngModel" spellcheck="false" pattern="[A-zığüşöçİĞÜŞÖÇ\s]{2,}" minlength="2" maxlength="30" />
+            </div>
+            <div style="float: left; margin-left: 10px;">
+                <div class="row-title">İlçe</div>
+                <input type="text" id="district" required [(ngModel)]="student.district" name="district" #district="ngModel" spellcheck="false" pattern="[A-zığüşöçİĞÜŞÖÇ\s]{2,}" minlength="2" maxlength="30" />
+            </div>
+            <div style="float: left; margin-left: 10px;">
+                <div class="row-title"> Mahalle / Köy </div>
+                <input type="text" id="neighborhood" required [(ngModel)]="student.neighborhood" name="neighborhood" #neighborhood="ngModel" spellcheck="false" pattern="[A-zığüşöçİĞÜŞÖÇ\s]{2,}" minlength="2" maxlength="30" />
+            </div>
+            <br style="clear: both;">
+        </div>
+
+        <div class="row">
+            <div style="float: left; ">
+                <div class="row-title">Cilt No.</div>
+                <input type="text" id="cover_no" required [(ngModel)]="student.cover_no" name="cover_no" #cover_no="ngModel" spellcheck="false" pattern="[0-9]{5}" minlength="1" maxlength="5" onkeyup="this.value = this.value.replace(/[^0-9]/, '')" />
+            </div>
+            <div style="float: left; margin-left: 10px;">
+                <div class="row-title">Aile Sıra No.</div>
+                <input type="text" id="family_serial_no" required [(ngModel)]="student.family_serial_no" name="family_serial_no" #family_serial_no="ngModel" spellcheck="false" pattern="[0-9]{5}" minlength="1" maxlength="5" onkeyup="this.value = this.value.replace(/[^0-9]/, '')"
+                />
+            </div>
+            <div style="float: left; margin-left: 10px;">
+                <div class="row-title">Sıra No.</div>
+                <input type="text" id="serial_no" required [(ngModel)]="student.serial_no" name="serial_no" #serial_no="ngModel" spellcheck="false" pattern="[0-9]{5}" minlength="1" maxlength="5" onkeyup="this.value = this.value.replace(/[^0-9]/, '')" />
+            </div>
+            <br style="clear: both;">
+        </div>
+    </div>
+
+
+    <span class="table-title">Öğrenim Bilgileri</span>
+
+    <div class="block">
+        <div class="row">
+            <div class="row-title">Öğrenci No.</div>
+            <input type="text" id="student_number" required [(ngModel)]="student.student_number" name="student_number" #student_number="ngModel" spellcheck="false" pattern="[0-9]{1,}" minlength="1" maxlength="20" onkeyup="this.value = this.value.replace(/[^0-9]/, '')"
+            />
+        </div>
+        <div class="row">
+            <div style="float: left; ">
+                <div class="row-title">Üniversite</div>
+                <select name="universities" id="university.name" style="width: 179px; height: 30px;" #mySelect (change)='onOptionsSelected(mySelect.value)' [(ngModel)]="student.university_id" required>
+                    <!--option value={{university.name}}  selected hidden>{{university.name}}}</option-->
+                    <option value={{uni.id}} *ngFor="let uni of universities">{{uni.name}}</option>
+                </select>
+                <!--  #mySelect (change)='onOptionsSelected(mySelect.value)'  
+                    //seçien option değiştiği takdirde bu fonksiyonu çağırıp seçilen üniversitenin departmanları databaseden çekildi
+                    value={{uni.id}} yaparak fonksiyona seçilen üniversitenin id sinin gitmesini sağladık
+                -->
+            </div>
+            <div style="float: left; margin-left: 10px;">
+                <div class="row-title">Bölümü</div>
+                <select name="departments" id="department.name" [(ngModel)]="student.department_id" style="width: 179px; height: 30px;" required>
+
+                    <option value="{{dept.id}}" *ngFor="let dept of departments" required>{{dept.name}}</option>
+                    <!--option id="placeholder" value="" disabled selected hidden>Bölüm Seçiniz</option-->
+                </select>
+            </div>
+            <div style="float: left; margin-left: 10px;">
+                <div class="row-title"> Sınıfı </div>
+                <select name="class" id="class" [(ngModel)]="student.class_no" style="width: 179px; height: 30px;">
+                    <!--option id="placeholder" value="" disabled selected hidden>Sınıf Seçiniz</!--option-->
+                    <option value="0">Hazırlık</option>
+                    <option value="1">1. Sınıf</option>
+                    <option value="2">2. Sınıf</option>
+                    <option value="3">3. Sınıf</option>
+                    <option value="4">4. Sınıf</option>
+                    <option value="5">Diğer</option>
+                </select>
+            </div>
+            <br style="clear: both;">
+        </div>
+    </div>
+
+    <span class="table-title">Hesap Bilgileri</span>
+
+    <div class="block">
+
+        <div class="row">
+            <div style="float: left; ">
+                <div class="row-title">Email</div>
+                <input type="email" id="email" required [(ngModel)]="account.email" name="email" #email="ngModel" spellcheck="false" />
+            </div>
+
+            <div style="float: left; margin-left: 10px;">
+                <div class="row-title">Şifre</div>
+                <input type="password" id="password" required [(ngModel)]="account.password" name="password" #password="ngModel" minlength="8" />
+
+            </div>
+            <div style="float: left; margin-left: 10px;">
+                <div class="row-title">Şifre Tekrar</div>
+                <input type="password" id="password_repeat" required name="password_repeat" minlength="8" />
+
+            </div>
+
+            <br style="clear: both;">
+        </div>
+
+    </div>
+
+    <span class="table-title">İletişim Bilgileri</span>
+
+    <div class="block">
+
+        <div class="row">
+            <div style="float: left;">
+                <div class="row-title">Telefon</div>
+                <input type="tel" id="phone_number" required [(ngModel)]="student.phone_number" name="phone_number" #phone_number="ngModel" minlength="10" onkeyup="this.value = this.value.replace(/[^0-9]/, '')" />
+
+            </div>
+            <div style="float: left; margin-left: 10px;">
+                <div class="row-title">Adres</div>
+                <input type="text" id="address" required [(ngModel)]="student.address" name="address" #address="ngModel" minlength="4" style="width: 488px;" />
+
+            </div>
+            <br style="clear: both;">
+        </div>
+
+    </div>
+
+    <span class="table-title">Ek Dosyalar</span>
+
+    <div class="block">
+        <div style="float: left;">
+            <div class="row-title">Öğrenci Belgesi</div>
+            <input type="file" id="student_certificate" #file2 required ng2FileSelect [uploader]="uploader" (change)="certificate(file2.files)" name="student_certificate" style="border: none; background: whitesmoke; width: 200px; background: transparent; margin-left: -90px; text-indent: 90px; padding-top: 15px;"
+            />
+            <button (click)=goStudentCertificate();>
+                Görüntüle
+            </button>
+
+        </div>
+
+        <div style="float: left; margin-left: 10px;">
+            <div class="row-title">Nüfus Kayıt Örneği</div>
+            <input type="file" id="registration_form " #file3 required ng2FileSelect [uploader]="uploader" (change)="form(file3.files)" name="registration_form " style="border: none; background: whitesmoke; width: 200px; background: transparent; margin-left: -90px; text-indent: 90px; padding-top: 15px;"
+            />
+            <button (click)=goRegistrationForm();>
+                Görüntüle
+            </button>
+        </div>
+
+
+
+    </div>
+    <div class="table-title" style="height: 25px;"></div>
+    <div>
+        <button (click)="updateStudent()" class="gradient-button">
+            Kaydı Güncelle
+        </button>
+    </div>
+</form>

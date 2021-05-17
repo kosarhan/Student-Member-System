@@ -1,0 +1,60 @@
+.ng-valid[required],
+.ng-valid.required {
+    border-left: 5px solid #42A948;
+    /* green */
+}
+
+.ng-invalid:not(form) {
+    border-left: 5px solid #a94442;
+    /* red */
+}
+
+.uni-title {
+    text-align: center;
+    font-size: 30px;
+    margin: 15px;
+}
+
+.uni-card {
+    width: 100%;
+    margin: 30px;
+    display: table;
+}
+
+.table {
+    width: 100%;
+    overflow-y: scroll;
+    margin: 10px 10px 20px 10px;
+    height: 200px;
+}
+
+.table thead {
+    position: sticky;
+}
+
+.table thead tr th,
+.table tbody tr td {
+    border-bottom-style: solid;
+    border-bottom-color: #a5aaa6;
+    font-size: 25px;
+    text-align: center;
+}
+
+.uni-table {
+    height: 300px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    border-style: groove;
+    margin: 10px 10px 20px 10px;
+}
+
+.form-group {
+    float: left;
+    margin-left: 30px;
+    height: 30px;
+}
+
+.form-group input,
+button {
+    height: 100%;
+}

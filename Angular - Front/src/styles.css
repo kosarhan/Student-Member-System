@@ -1,0 +1,116 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* General Styles */
+
+:host {
+  color: #333;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.toolbar{
+  height: 105px;
+  margin: -8px;
+  display: flex;
+  align-items: center;/*dikeydeki pozisyon*/
+  background-size: cover;
+  background-color: hsla(0, 0%, 0%, 0.800);
+  /*background-image: linear-gradient(to right, rgb(62, 62, 180) 0%, #348AC7 51%, rgb(170, 170, 224) 100%);*/
+  color: whitesmoke;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 20px;
+  /*text-decoration: none;*/
+}
+
+.toolbar img {
+  margin: 0 16px;
+}
+
+body {
+  /*background-image: url("/assets/background2.jpg");*/
+ /* background-image: linear-gradient(to right, #7474BF 0%, #348AC7 51%, #7474BF 100%);*/
+  background-color: gray;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+/* Admin Login*/
+/*
+.card-login {
+  border-radius: 32px;
+  border: 1px solid #eee;
+  background-color: #fafafa;
+  height: max-content;
+  width: max-content;
+  margin: auto;
+  margin-top: 128px;
+  align-self: center;
+  padding: 32px;
+  display: flex;
+  flex-direction: row;
+  /* justify-content: center; */
+ /* color: black;
+  text-decoration: none;
+  /* align-items: center; */
+ /* transition: all 0.2s ease-in-out;
+  line-height: 24px;
+}
+
+
+
+/*universities*/
+/*
+.uni-title {
+  color: lightcyan;
+  text-align: center;
+  font-size: xx-large;
+}
+
+.uni-name {
+  text-align: center;
+  color: lightcyan;
+}
+
+.uni-name a {
+  text-decoration: none;
+  color: lightcyan;
+  line-height: 24px;
+}
+
+.uni-card {
+  padding-top: 24px;
+  border-radius: 4px;
+  border: 1px solid #eee;
+  background-color: #fafafa;
+  height: max-content;
+  width: max-content;
+  margin: auto;
+  margin-top: 16px;
+  padding: 16px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  color: black;
+  text-decoration: none;
+  align-items: flex-end;
+  transition: all 0.2s ease-in-out;
+  line-height: 24px;
+}
+
+.form-group {
+  text-align: center;
+  padding-bottom: 24px;
+  /*margin: 24px;*/
+/*}
+
+.form-group input {
+  border: none;
+  height: 32px;
+  border-bottom: solid;
+  border-bottom-width: 2px;
+  width: 256px;
+  outline: none;
+  background-color: #fafafa;
+}*/
+

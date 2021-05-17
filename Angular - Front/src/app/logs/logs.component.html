@@ -1,0 +1,32 @@
+<title>Log</title>
+
+<div>
+    <h5 class="uni-title">Log</h5>
+    <div>
+        <div class="uni-table">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Hesap Id</th>
+                        <th>Adı</th>
+                        <th>Soyadı</th>
+                        <th>İşlem</th>
+                        <th>Tarih</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let log of logs">
+                        <td>{{ log.id }}</td>
+                        <td>{{ log.account_id }}</td>
+                        <td>{{ log.student.first_name }}</td>
+                        <td>{{ log.student.last_name }}</td>
+                        <td>{{ log.log_message }}</td>
+                        <td>{{ log.createdAt }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
